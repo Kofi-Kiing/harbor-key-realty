@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}{{ property.title }} — Harbor & Key Realty{% endblock %}
+{% block description %}{{ property.description }}{% endblock %}
+{% block content %}
+<section class="detail-header">
+  <div class="container detail-title-row">
+    <div>
+      <p class="eyebrow">{{ property.type }} · {{ property.status }}</p>
+      <h1>{{ property.title }}</h1>
+      <p>{{ property.address }}</p>
+    </div>
+    <div class="detail-price">{{ property.price|money }}</div>
+  </div>
+</section>
+
+<section class="container gallery">
+  {% for image in property.gallery %}
+    <button class="gallery-item gallery-item-{{ loop.index }}" type="button" data-gallery-image="{{ image }}" aria-label="Open image {{ loop.index }}">
+      <img src="{{ image }}" alt="{{ property.title }} image {{ loop.index }}">
+    </button>
+  {% endfor %}
+</section>
+
+<section class="section detail-section">
+  <div class="container detail-layout">
+    <article class="detail-main">
+      <div class="detail-stats">
+        <div><strong>{{ property.beds }}</strong><span>Bedrooms</span></div>
+        <div><strong>{{ property.baths }}</strong><span>Bathrooms</span></div>
+        <div><strong>{{ "{:,}".format(property.sqft) }}</strong><span>Square feet</span></div>
+        <div><strong>{{ property.type }}</strong><span>Property type</span></div>
+      </div>
+
+      <div class="detail-block">
+        <p class="eyebrow">ABOUT THE HOME</p>
+        <h2>A closer look</h2>
+        <p class="large-copy">{{ property.description }}</p>
+      </div>
+
+      <div class="detail-block">
+        <p class="eyebrow">HIGHLIGHTS</p>
+        <h2>Property features</h2>
+        <ul class="feature-list">
+          {% for feature in property.features %}<li>{{ feature }}</li>{% endfor %}
+        </ul>
+      </div>
+
+      <div class="detail-block">
+        <p class="eyebrow">LOCATION</p>
+        <h2>{{ property.city }}, {{ property.state }}</h2>
+        <div class="fake-map">
+          <div class="map-grid"></div>
+          <div class="map-pin">⌂</div>
+          <span>Interactive map placeholder</span>
+        </div>
+      </div>
+    </article>
+
+    <aside class="inquiry-card">
+      <p class="eyebrow">REQUEST INFORMATION</p>
+      <h2>Interested in this property?</h2>
+      <p>Submit the demo form and test your contact workflow.</p>
+      <form action="{{ url_for('contact') }}" method="post">
+        <input type="hidden" name="property" value="{{ property.title }}">
+        <label>Name<input name="name" required placeholder="Your name"></label>
+        <label>Email<input type="email" name="email" required placeholder="you@example.com"></label>
+        <label>Message<textarea name="message" required rows="5">I am interested in {{ property.title }}.</textarea></label>
+        <button class="button button-dark button-full" type="submit">Send inquiry</button>
+      </form>
+      <small>This is a demo. No inquiry is saved.</small>
+    </aside>
+  </div>
+</section>
+
+{% if related %}
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <div><p class="eyebrow">KEEP LOOKING</p><h2>Related properties</h2></div>
+    </div>
+    <div class="property-grid">
+      {% for property in related %}
+        {% include "_property_card.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<div class="lightbox" data-lightbox hidden>
+  <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close image">×</button>
+  <img src="" alt="Expanded property view" data-lightbox-image>
+</div>
+{% endblock %}

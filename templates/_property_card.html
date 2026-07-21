@@ -1,0 +1,17 @@
+<article class="property-card">
+  <a class="property-image" href="{{ url_for('property_detail', slug=property.slug) }}">
+    <img src="{{ property.image }}" alt="{{ property.title }}" loading="lazy">
+    <span class="status-badge">{{ property.status }}</span>
+    <span class="favorite-button" aria-hidden="true">♡</span>
+  </a>
+  <div class="property-body">
+    <p class="property-price">{{ property.price|money }}</p>
+    <h3><a href="{{ url_for('property_detail', slug=property.slug) }}">{{ property.title }}</a></h3>
+    <p class="property-address">{{ property.address }}</p>
+    <div class="property-meta">
+      <span><strong>{{ property.beds }}</strong> beds</span>
+      <span><strong>{{ property.baths }}</strong> baths</span>
+      <span><strong>{{ "{:,}".format(property.sqft) }}</strong> sq ft</span>
+    </div>
+  </div>
+</article>

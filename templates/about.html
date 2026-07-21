@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}About the Demo — Harbor & Key Realty{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container narrow">
+    <p class="eyebrow">ABOUT THIS PROJECT</p>
+    <h1>A fictional brokerage with a real, working stack.</h1>
+    <p>Harbor & Key Realty is a development sandbox. The names, addresses, prices, contact details, and listings are invented for testing.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-grid">
+    <div>
+      <p class="eyebrow">WHAT YOU CAN TEST</p>
+      <h2>Use it as a clean starting line.</h2>
+    </div>
+    <div class="prose">
+      <p>The project gives you realistic real estate pages without requiring a CMS or production database. Listing data lives in one JSON file, so it is easy to replace, generate, scrape, or connect to another system.</p>
+      <p>You can test SEO metadata, analytics events, UI experiments, web automation, contact integrations, deployment hooks, API consumers, or a future admin dashboard.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading"><div><p class="eyebrow">INCLUDED</p><h2>Project features</h2></div></div>
+    <div class="info-grid">
+      <article><span>01</span><h3>Flask routes</h3><p>Home, listings, details, about, contact, health check, and JSON API routes.</p></article>
+      <article><span>02</span><h3>Search and filters</h3><p>Filter by city, type, beds, price, keywords, and sort order.</p></article>
+      <article><span>03</span><h3>Responsive design</h3><p>Custom CSS with accessible navigation, forms, cards, and mobile layouts.</p></article>
+      <article><span>04</span><h3>Render config</h3><p>A Blueprint file plus production Gunicorn start command.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container api-panel">
+    <div>
+      <p class="eyebrow light">TEST THE API</p>
+      <h2>Listing data is available as JSON.</h2>
+      <p>Try <code>/api/properties</code>, <code>/api/properties/1</code>, or <code>/api/health</code>.</p>
+    </div>
+    <a class="button button-light" href="{{ url_for('api_properties') }}">Open API</a>
+  </div>
+</section>
+{% endblock %}

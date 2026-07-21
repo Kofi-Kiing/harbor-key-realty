@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Harbor & Key Realty — Find Your Next Place{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="eyebrow light">PORTLAND METRO REAL ESTATE</p>
+    <h1>Find a place that<br>feels like your future.</h1>
+    <p class="hero-copy">Explore a polished set of fictional homes built for testing search, listing pages, forms, APIs, and integrations.</p>
+
+    <form class="hero-search" action="{{ url_for('listings') }}" method="get">
+      <label>
+        <span>Location</span>
+        <select name="city">
+          <option value="">Any city</option>
+          {% for city in cities %}<option value="{{ city }}">{{ city }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Minimum beds</span>
+        <select name="beds">
+          <option value="">Any</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+      </label>
+      <label>
+        <span>Maximum price</span>
+        <select name="max_price">
+          <option value="">No maximum</option>
+          <option value="500000">$500,000</option>
+          <option value="750000">$750,000</option>
+          <option value="1000000">$1,000,000</option>
+          <option value="1500000">$1,500,000</option>
+        </select>
+      </label>
+      <button class="button" type="submit">Search homes</button>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">CURATED LISTINGS</p>
+        <h2>Featured properties</h2>
+      </div>
+      <a class="text-link" href="{{ url_for('listings') }}">View every property <span>→</span></a>
+    </div>
+
+    <div class="property-grid">
+      {% for property in featured %}
+        {% include "_property_card.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container split-feature">
+    <div class="feature-image">
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=85" alt="Real estate agent reviewing a home">
+      <div class="floating-stat"><strong>8</strong><span>demo listings</span></div>
+    </div>
+    <div class="feature-copy">
+      <p class="eyebrow">BUILT FOR TESTING</p>
+      <h2>A realistic front end, without real-world baggage.</h2>
+      <p>Use the site to test content pipelines, CMS imports, analytics, forms, scraping, automation, API calls, styling changes, and deployment workflows.</p>
+      <div class="mini-features">
+        <div><span>01</span><p><strong>Responsive UI</strong><br>Works across desktop, tablet, and mobile.</p></div>
+        <div><span>02</span><p><strong>JSON endpoints</strong><br>Query listing data without touching the templates.</p></div>
+        <div><span>03</span><p><strong>Render ready</strong><br>Includes Gunicorn, requirements, and a Blueprint file.</p></div>
+      </div>
+      <a class="button button-dark" href="{{ url_for('about') }}">See what is included</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cta-panel">
+    <div>
+      <p class="eyebrow light">START EXPLORING</p>
+      <h2>Every listing is fake.<br>The testing possibilities are real.</h2>
+    </div>
+    <a class="button button-light" href="{{ url_for('listings') }}">Open the listings</a>
+  </div>
+</section>
+{% endblock %}

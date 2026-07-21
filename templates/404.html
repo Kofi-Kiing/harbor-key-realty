@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Page Not Found — Harbor & Key Realty{% endblock %}
+{% block content %}
+<section class="not-found">
+  <div class="container narrow">
+    <p class="eyebrow">404</p>
+    <h1>This address is not on the market.</h1>
+    <p>The page you requested does not exist in this demo.</p>
+    <a class="button button-dark" href="{{ url_for('home') }}">Return home</a>
+  </div>
+</section>
+{% endblock %}

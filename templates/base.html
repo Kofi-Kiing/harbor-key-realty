@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{% block description %}Harbor & Key Realty demo website.{% endblock %}">
+  <title>{% block title %}Harbor & Key Realty{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="{{ url_for('home') }}" aria-label="Harbor and Key Realty home">
+        <span class="brand-mark">H&K</span>
+        <span>
+          <strong>Harbor & Key</strong>
+          <small>REALTY</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Toggle menu</span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <a href="{{ url_for('listings') }}" class="{{ 'active' if request.endpoint in ['listings', 'property_detail'] else '' }}">Properties</a>
+        <a href="{{ url_for('about') }}" class="{{ 'active' if request.endpoint == 'about' else '' }}">About</a>
+        <a href="{{ url_for('contact') }}" class="{{ 'active' if request.endpoint == 'contact' else '' }}">Contact</a>
+        <a class="button button-small" href="{{ url_for('listings') }}">Browse homes</a>
+      </nav>
+    </div>
+  </header>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container alerts">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}" role="status">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="{{ url_for('home') }}">
+          <span class="brand-mark">H&K</span>
+          <span><strong>Harbor & Key</strong><small>REALTY</small></span>
+        </a>
+        <p>A fictional real estate website built for development, integration, and UI testing.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="{{ url_for('listings') }}">All properties</a>
+        <a href="{{ url_for('about') }}">About the demo</a>
+        <a href="{{ url_for('contact') }}">Contact form</a>
+      </div>
+      <div>
+        <h3>Demo contact</h3>
+        <p>hello@example.test<br>(503) 555-0142<br>Portland, Oregon</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span data-year></span> Harbor & Key Realty</span>
+      <span>Demo data only — not real listings.</span>
+    </div>
+  </footer>
+</body>
+</html>

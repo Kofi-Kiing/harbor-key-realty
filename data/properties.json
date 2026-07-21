@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "slug": "modern-pearl-district-loft",
+    "title": "Modern Pearl District Loft",
+    "address": "1120 NW Lovejoy St, Portland, OR",
+    "city": "Portland",
+    "state": "OR",
+    "price": 685000,
+    "beds": 2,
+    "baths": 2,
+    "sqft": 1240,
+    "type": "Condo",
+    "status": "For Sale",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "A bright, design-forward loft with floor-to-ceiling windows, polished concrete, and easy access to restaurants, galleries, and the streetcar.",
+    "features": [
+      "Floor-to-ceiling windows",
+      "Secure parking",
+      "Rooftop terrace",
+      "Pet friendly"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "sellwood-craftsman",
+    "title": "Updated Sellwood Craftsman",
+    "address": "7424 SE 15th Ave, Portland, OR",
+    "city": "Portland",
+    "state": "OR",
+    "price": 799000,
+    "beds": 4,
+    "baths": 3,
+    "sqft": 2380,
+    "type": "House",
+    "status": "For Sale",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "Classic curb appeal meets a warm modern interior. The home includes a flexible lower level, landscaped yard, and a walkable neighborhood setting.",
+    "features": [
+      "Finished basement",
+      "Fenced backyard",
+      "Original built-ins",
+      "EV-ready garage"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "lake-oswego-retreat",
+    "title": "Lake Oswego Contemporary Retreat",
+    "address": "3810 Lakeview Blvd, Lake Oswego, OR",
+    "city": "Lake Oswego",
+    "state": "OR",
+    "price": 1495000,
+    "beds": 4,
+    "baths": 3.5,
+    "sqft": 3420,
+    "type": "House",
+    "status": "For Sale",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566753051-f0b89df2dd90?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "A private contemporary home with generous entertaining spaces, dramatic natural light, and a calm indoor-outdoor connection.",
+    "features": [
+      "Chef's kitchen",
+      "Home office",
+      "Covered patio",
+      "Three-car garage"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "alberta-arts-bungalow",
+    "title": "Alberta Arts Bungalow",
+    "address": "4931 NE 22nd Ave, Portland, OR",
+    "city": "Portland",
+    "state": "OR",
+    "price": 625000,
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1760,
+    "type": "House",
+    "status": "For Sale",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "A character-rich bungalow near Alberta Street with an updated kitchen, flexible bonus space, and a low-maintenance backyard.",
+    "features": [
+      "Covered front porch",
+      "Updated kitchen",
+      "Bonus room",
+      "Bike storage"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "beaverton-townhome",
+    "title": "Beaverton Greenway Townhome",
+    "address": "15875 SW Snowy Owl Ln, Beaverton, OR",
+    "city": "Beaverton",
+    "state": "OR",
+    "price": 489000,
+    "beds": 3,
+    "baths": 2.5,
+    "sqft": 1685,
+    "type": "Townhome",
+    "status": "For Sale",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566752734-2a0cd1c6e674?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "A clean, practical townhome close to trails, shopping, and major employers, with a comfortable open main floor and attached garage.",
+    "features": [
+      "Attached garage",
+      "Community greenway",
+      "Gas fireplace",
+      "Primary suite"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "vancouver-river-view",
+    "title": "Vancouver River-View Condo",
+    "address": "701 Columbia St, Vancouver, WA",
+    "city": "Vancouver",
+    "state": "WA",
+    "price": 735000,
+    "beds": 2,
+    "baths": 2,
+    "sqft": 1385,
+    "type": "Condo",
+    "status": "For Sale",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566752229-250ed79470f8?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566753198-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "A refined condo with broad river views, a quiet balcony, and quick access to the waterfront district and downtown Vancouver.",
+    "features": [
+      "River view",
+      "Private balcony",
+      "Fitness room",
+      "Concierge entry"
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "hillsboro-new-construction",
+    "title": "Hillsboro New Construction",
+    "address": "6112 NE Alderbrook Dr, Hillsboro, OR",
+    "city": "Hillsboro",
+    "state": "OR",
+    "price": 829000,
+    "beds": 4,
+    "baths": 3,
+    "sqft": 2710,
+    "type": "House",
+    "status": "Open House",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "A newly built home with an airy great room, flexible bedroom configuration, energy-efficient systems, and a landscaped corner lot.",
+    "features": [
+      "New construction",
+      "Heat pump",
+      "Smart-home package",
+      "Walk-in pantry"
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "mississippi-live-work",
+    "title": "Mississippi Live/Work Studio",
+    "address": "4140 N Mississippi Ave, Portland, OR",
+    "city": "Portland",
+    "state": "OR",
+    "price": 459000,
+    "beds": 1,
+    "baths": 1,
+    "sqft": 980,
+    "type": "Loft",
+    "status": "For Sale",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1400&q=85",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600566753199-5f7e1bc2d22a?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1600&q=85"
+    ],
+    "description": "A flexible street-level loft designed for creative work and city living, with high ceilings and direct access to one of Portland's liveliest corridors.",
+    "features": [
+      "Live/work zoning",
+      "High ceilings",
+      "Street entrance",
+      "Secure storage"
+    ]
+  }
+]
