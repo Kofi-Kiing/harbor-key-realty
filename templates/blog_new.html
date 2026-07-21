@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Write a Post — Harbor & Key Realty{% endblock %}
+{% block content %}
+<section class="page-hero compact">
+  <div class="container narrow">
+    <p class="eyebrow">NEW POST</p>
+    <h1>Write a blog post.</h1>
+    <p>Publish a post to the demo blog. Title and body are required; everything else is optional.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <form class="contact-form post-form" method="post">
+      <label>Title <span class="required">*</span>
+        <input name="title" required placeholder="A clear, specific headline" value="{{ form.get('title', '') }}">
+      </label>
+
+      <div class="form-row">
+        <label>Author
+          <input name="author" placeholder="Your name" value="{{ form.get('author', '') }}">
+        </label>
+        <label>Category
+          <input name="category" placeholder="e.g. Market Update" value="{{ form.get('category', '') }}">
+        </label>
+      </div>
+
+      <label>Cover image URL <span class="optional">(optional)</span>
+        <input name="image" type="url" placeholder="https://…" value="{{ form.get('image', '') }}">
+      </label>
+
+      <label>Tags <span class="optional">(comma separated)</span>
+        <input name="tags" placeholder="Buyers, Portland, Guides" value="{{ form.get('tags', '') }}">
+      </label>
+
+      <label>Excerpt <span class="optional">(optional — auto-generated if blank)</span>
+        <textarea name="excerpt" rows="2" placeholder="A one-line summary for the blog list.">{{ form.get('excerpt', '') }}</textarea>
+      </label>
+
+      <label>Body <span class="required">*</span>
+        <textarea name="body" required rows="12" placeholder="Write your post here. Separate paragraphs with a blank line.">{{ form.get('body', '') }}</textarea>
+      </label>
+
+      <div class="form-actions">
+        <button class="button button-dark" type="submit">Publish post</button>
+        <a class="reset-link" href="{{ url_for('blog') }}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

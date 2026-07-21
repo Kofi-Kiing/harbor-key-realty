@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "slug": "portland-metro-market-outlook",
+    "title": "Portland Metro Market Outlook for the Season Ahead",
+    "author": "Harbor & Key Editorial",
+    "date": "2026-06-18",
+    "category": "Market Update",
+    "excerpt": "Inventory is loosening across the Portland metro. Here is what shifting supply means for buyers and sellers this season.",
+    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=85",
+    "tags": ["Market", "Portland", "Trends"],
+    "body": "The Portland metro is entering a more balanced stretch after several years of tight supply. New listings are arriving a little faster than they clear, which gives buyers more room to negotiate without signaling a downturn.\n\nSellers are still seeing strong interest on well-priced, move-in-ready homes. The difference now is that condition and pricing matter more than they did at the peak. Homes that need obvious work are sitting longer.\n\nIf you are planning a move in the next few months, focus on preparation. Clean inspections, realistic pricing, and quality photography continue to be the strongest levers you control."
+  },
+  {
+    "id": 2,
+    "slug": "first-time-buyer-checklist",
+    "title": "A Practical Checklist for First-Time Buyers",
+    "author": "Harbor & Key Editorial",
+    "date": "2026-05-30",
+    "category": "Buyer Tips",
+    "excerpt": "Buying your first home is less overwhelming with a clear plan. Work through these steps before you tour a single property.",
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=85",
+    "tags": ["Buyers", "Guides", "Financing"],
+    "body": "Start with your budget, not the listings. Get pre-approved so you know your real price range and can move quickly when the right home appears.\n\nNext, separate your must-haves from your nice-to-haves. Location, commute, and layout are hard to change later. Finishes and paint colors are not.\n\nFinally, budget for the costs beyond the purchase price: closing costs, moving, and a small reserve for early repairs. A calm, funded buyer almost always makes better decisions than a rushed one."
+  },
+  {
+    "id": 3,
+    "slug": "staging-that-actually-sells",
+    "title": "Staging That Actually Helps a Home Sell",
+    "author": "Harbor & Key Editorial",
+    "date": "2026-05-12",
+    "category": "Seller Tips",
+    "excerpt": "You do not need a full production to stage well. A few high-impact moves photograph beautifully and help buyers picture themselves at home.",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
+    "tags": ["Sellers", "Staging", "Photography"],
+    "body": "Great staging is mostly editing. Clear counters, thin out closets, and remove roughly a third of the furniture so rooms read as open and intentional.\n\nLight is your best friend. Open every blind, swap dim bulbs for bright neutral ones, and shoot photos in the morning when rooms feel fresh.\n\nEnd with small warmth: fresh towels, a simple centerpiece, and tidy entryways. Buyers decide fast, and a calm, bright first impression carries the whole tour."
+  }
+]

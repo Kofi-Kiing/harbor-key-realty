@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — Harbor & Key Realty{% endblock %}
+{% block description %}{{ post.excerpt }}{% endblock %}
+{% block content %}
+<section class="post-header">
+  <div class="container narrow">
+    <p class="eyebrow">{{ post.category }}</p>
+    <h1>{{ post.title }}</h1>
+    <p class="post-byline">{{ post.date|prettydate }} · {{ post.author }}</p>
+  </div>
+</section>
+
+{% if post.image %}
+<div class="container">
+  <div class="post-hero-image">
+    <img src="{{ post.image }}" alt="{{ post.title }}">
+  </div>
+</div>
+{% endif %}
+
+<section class="section post-section">
+  <div class="container narrow">
+    <article class="post-content prose">
+      {% for paragraph in post.body.split('\n\n') %}
+        {% if paragraph.strip() %}<p>{{ paragraph.strip() }}</p>{% endif %}
+      {% endfor %}
+    </article>
+
+    {% if post.tags %}
+      <div class="post-tags">
+        {% for tag in post.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+      </div>
+    {% endif %}
+
+    <a class="text-link" href="{{ url_for('blog') }}"><span>←</span> Back to all posts</a>
+  </div>
+</section>
+
+{% if related %}
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <div><p class="eyebrow">KEEP READING</p><h2>Related posts</h2></div>
+    </div>
+    <div class="post-grid">
+      {% for post in related %}
+        {% include "_post_card.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

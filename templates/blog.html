@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Blog — Harbor & Key Realty{% endblock %}
+{% block description %}Market updates, buyer tips, and seller guides from the Harbor & Key Realty demo.{% endblock %}
+{% block content %}
+<section class="page-hero compact">
+  <div class="container">
+    <p class="eyebrow">FROM THE DESK</p>
+    <h1>The Blog</h1>
+    <p>Market notes, buyer and seller guides, and neighborhood stories — plus an open form to publish your own demo post.</p>
+    <a class="button button-dark" href="{{ url_for('blog_new') }}">Write a post</a>
+  </div>
+</section>
+
+<section class="section listings-section">
+  <div class="container">
+    {% if categories %}
+      <div class="blog-filter">
+        <a href="{{ url_for('blog') }}" class="chip {{ 'active' if not active_category else '' }}">All</a>
+        {% for category in categories %}
+          <a href="{{ url_for('blog', category=category) }}" class="chip {{ 'active' if active_category == category else '' }}">{{ category }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if posts %}
+      <div class="post-grid">
+        {% for post in posts %}
+          {% include "_post_card.html" %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <h2>No posts yet</h2>
+        <p>Be the first to publish something.</p>
+        <a class="button button-dark" href="{{ url_for('blog_new') }}">Write a post</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if featured_articles %}
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">FEATURED ARTICLES</p>
+        <h2>More reading we're sharing</h2>
+      </div>
+    </div>
+
+    <ul class="article-links">
+      {% for article in featured_articles %}
+        {% set is_external = article.type == 'external' %}
+        {% set href = article.url if is_external else url_for('blog_detail', slug=article.slug) %}
+        <li>
+          <a class="article-link" href="{{ href }}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
+            <div class="article-link-text">
+              <div class="article-link-top">
+                {% if article.source %}<span class="article-source">{{ article.source }}</span>{% endif %}
+                <span class="article-kind">{{ 'External' if is_external else 'On this site' }}</span>
+              </div>
+              <h3>{{ article.title }}</h3>
+              {% if article.blurb %}<p>{{ article.blurb }}</p>{% endif %}
+            </div>
+            <span class="article-arrow" aria-hidden="true">{{ '↗' if is_external else '→' }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

@@ -29,6 +29,7 @@
 
       <nav id="main-nav" class="main-nav" aria-label="Main navigation">
         <a href="{{ url_for('listings') }}" class="{{ 'active' if request.endpoint in ['listings', 'property_detail'] else '' }}">Properties</a>
+        <a href="{{ url_for('blog') }}" class="{{ 'active' if request.endpoint in ['blog', 'blog_detail', 'blog_new'] else '' }}">Blog</a>
         <a href="{{ url_for('about') }}" class="{{ 'active' if request.endpoint == 'about' else '' }}">About</a>
         <a href="{{ url_for('contact') }}" class="{{ 'active' if request.endpoint == 'contact' else '' }}">Contact</a>
         <a class="button button-small" href="{{ url_for('listings') }}">Browse homes</a>
@@ -62,6 +63,7 @@
       <div>
         <h3>Explore</h3>
         <a href="{{ url_for('listings') }}">All properties</a>
+        <a href="{{ url_for('blog') }}">Blog</a>
         <a href="{{ url_for('about') }}">About the demo</a>
         <a href="{{ url_for('contact') }}">Contact form</a>
       </div>
