@@ -10,3 +10,5 @@ env/
 credentials.json
 secrets.json
 .DS_Store
+*.db
+data/*.db

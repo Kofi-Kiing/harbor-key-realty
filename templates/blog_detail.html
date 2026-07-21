@@ -21,9 +21,7 @@
 <section class="section post-section">
   <div class="container narrow">
     <article class="post-content prose">
-      {% for paragraph in post.body.split('\n\n') %}
-        {% if paragraph.strip() %}<p>{{ paragraph.strip() }}</p>{% endif %}
-      {% endfor %}
+      {{ post.body_html|safe }}
     </article>
 
     {% if post.tags %}
