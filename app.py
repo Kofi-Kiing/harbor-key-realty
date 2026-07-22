@@ -498,6 +498,7 @@ def storychief_webhook():
     payload = request.get_json(silent=True)
     if not isinstance(payload, dict):
         return jsonify({"error": "Invalid payload"}), 400
+    app.logger.info("STORYCHIEF RAW PAYLOAD: %s", json.dumps(payload))
     if not verify_storychief_signature(payload):
         return jsonify({"error": "Invalid signature"}), 401
 
