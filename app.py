@@ -203,7 +203,16 @@ def parse_storychief_date(value: Any) -> date | None:
         return None
 
 
+def sc_unwrap(value: Any) -> Any:
+    """StoryChief nests every relation under an extra ``{"data": ...}`` envelope
+    (JSON:API style). Peel that layer off before extracting fields."""
+    if isinstance(value, dict) and "data" in value:
+        return value["data"]
+    return value
+
+
 def extract_author(author: Any) -> str:
+    author = sc_unwrap(author)
     if isinstance(author, dict):
         name = " ".join(
             part for part in [author.get("first_name"), author.get("last_name")] if part
@@ -215,6 +224,7 @@ def extract_author(author: Any) -> str:
 
 
 def extract_category(categories: Any) -> str:
+    categories = sc_unwrap(categories)
     if isinstance(categories, list) and categories:
         first = categories[0]
         if isinstance(first, dict):
@@ -225,6 +235,7 @@ def extract_category(categories: Any) -> str:
 
 
 def extract_tags(tags: Any) -> list[str]:
+    tags = sc_unwrap(tags)
     result: list[str] = []
     if isinstance(tags, list):
         for tag in tags:
@@ -236,12 +247,13 @@ def extract_tags(tags: Any) -> list[str]:
 
 
 def extract_image(featured: Any) -> str:
+    featured = sc_unwrap(featured)
     if isinstance(featured, dict):
         if featured.get("url"):
             return str(featured["url"])
         sizes = featured.get("sizes")
         if isinstance(sizes, dict):
-            for key in ("large", "full", "original", "medium"):
+            for key in ("large", "full", "regular"):
                 if sizes.get(key):
                     return str(sizes[key])
     if isinstance(featured, str) and featured.strip():
@@ -250,7 +262,7 @@ def extract_image(featured: Any) -> str:
 
 
 def upsert_storychief_post(data: dict[str, Any]) -> Post:
-    external_id = str(data.get("id"))
+    external_id = str(data.get("storychief_id"))
     title = (data.get("title") or "Untitled").strip()
     post = Post.query.filter_by(external_id=external_id).first()
 
@@ -510,7 +522,7 @@ def storychief_webhook():
         return jsonify({"id": "test", "permalink": url_for("blog", _external=True), "mac": key})
 
     if event == "delete":
-        external_id = str(data.get("id"))
+        external_id = str(data.get("storychief_id"))
         post = Post.query.filter_by(external_id=external_id).first()
         if post is not None:
             db.session.delete(post)
@@ -520,7 +532,7 @@ def storychief_webhook():
         )
 
     if event in ("publish", "update"):
-        if not data.get("id"):
+        if not data.get("storychief_id"):
             return jsonify({"error": "Missing article id"}), 400
         post = upsert_storychief_post(data)
         return jsonify(

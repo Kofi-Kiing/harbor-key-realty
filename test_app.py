@@ -87,14 +87,25 @@ def test_storychief_bad_signature():
 def test_storychief_publish_and_delete():
     client = app.test_client()
     data = {
-        "id": 987654,
+        "storychief_id": 987654,
         "title": "StoryChief Integration Works",
         "content": "<p>Hello from <strong>StoryChief</strong>.</p><script>alert(1)</script>",
         "excerpt": "A published article.",
-        "featured_image": {"url": "https://example.test/cover.jpg"},
-        "author": {"first_name": "Casey", "last_name": "Rivera"},
-        "categories": [{"name": "Announcements"}],
-        "tags": [{"name": "News"}, {"name": "Product"}],
+        "featured_image": {
+            "data": {
+                "url": "https://example.test/cover.jpg",
+                "alt": "Cover",
+                "sizes": {"regular": "https://example.test/r.jpg", "large": "https://example.test/l.jpg"},
+            }
+        },
+        "author": {"data": {"first_name": "Casey", "last_name": "Rivera"}},
+        "categories": {"data": [{"storychief_id": 1, "name": "Announcements", "slug": "announcements"}]},
+        "tags": {
+            "data": [
+                {"storychief_id": 2, "name": "News", "slug": "news"},
+                {"storychief_id": 3, "name": "Product", "slug": "product"},
+            ]
+        },
         "seo_slug": "storychief-integration-works",
     }
     response = post_event(client, "publish", data)
@@ -109,6 +120,15 @@ def test_storychief_publish_and_delete():
     assert b"<script>" not in detail.data
     assert b"StoryChief" in detail.data
 
+    # Nested "data" relations were unwrapped correctly.
+    published = next(
+        p for p in client.get("/api/posts").get_json()["posts"] if p["external_id"] == "987654"
+    )
+    assert published["author"] == "Casey Rivera"
+    assert published["category"] == "Announcements"
+    assert published["tags"] == ["News", "Product"]
+    assert published["image"] == "https://example.test/cover.jpg"
+
     # An update keeps the same record.
     data["title"] = "StoryChief Integration Still Works"
     updated = post_event(client, "update", data)
@@ -116,7 +136,7 @@ def test_storychief_publish_and_delete():
     assert updated.get_json()["id"] == "987654"
 
     # Delete removes it.
-    deleted = post_event(client, "delete", {"id": 987654})
+    deleted = post_event(client, "delete", {"storychief_id": 987654})
     assert deleted.status_code == 200
     assert client.get("/blog/storychief-integration-works").status_code == 404
 
